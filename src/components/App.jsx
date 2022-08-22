@@ -1,5 +1,3 @@
-//Copy of the original file just to see how it was set up
-
 import React from 'react';
 import {
   ChakraProvider,
