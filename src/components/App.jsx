@@ -6,6 +6,7 @@ import {
   Container,
   Flex,
   VStack,
+  HStack,
   Heading,
   Text,
   SimpleGrid,
@@ -16,9 +17,14 @@ import {
   Select,
   Checkbox,
   Button,
+  useColorMode,
+  Image
 } from '@chakra-ui/react';
 
 function App() {
+
+  const { toggleColorMode } = useColorMode()
+
   return (
     <ChakraProvider theme={theme}>
       <Container maxWidth='container.xl' padding={0} /* p means padding*/>
@@ -80,7 +86,6 @@ function App() {
               <Button size='lg' w='full'>Place Order</Button>
             </GridItem>
           </SimpleGrid>
-          
         </VStack>
 
         {/* Cart component */}
@@ -91,7 +96,20 @@ function App() {
           spacing={10}
           alignItems='flex-start'
           bg='gray.50'
-        ></VStack>
+          >
+          <VStack>
+            <Heading size='2xl'>Your Cart</Heading>
+            <Text>If the price is too hard on your eyes {' '}
+              <Button onClick={toggleColorMode} variant="link" colorScheme="black">
+              try changing the theme.
+              </Button>
+            </Text>
+          </VStack>
+          <HStack>
+            <Image src='/images/skateboard.jpg' alt='skateboard'/>
+          </HStack>
+        </VStack>
+
         </Flex>
       </Container>
     </ChakraProvider>
