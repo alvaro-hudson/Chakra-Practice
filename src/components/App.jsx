@@ -112,8 +112,7 @@ function App() {
           </VStack>
           <HStack spacing={6} alignItems="center" w="full">
             <AspectRatio ratio={1} w={24}>
-              {/* THIS DOESN'T WORK FOR SOME REASON - NEED TO FIX */}
-              <Image src="/public/skateboardImage.jpeg" alt="Skateboard" />
+              <Image src="https://www.thewarehouse.co.nz/dw/image/v2/BDMG_PRD/on/demandware.static/-/Sites-twl-master-catalog/default/dw40ba9372/images/hi-res/6A/27/R2433170_30.jpg?sw=765&sh=765" alt="Skateboard" />
             </AspectRatio>
             <Stack
               spacing={0}
