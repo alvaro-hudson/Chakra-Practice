@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {
   ChakraProvider,
   theme,
@@ -17,22 +16,23 @@ import {
   Select,
   Checkbox,
   Button,
-  useColorMode,
   useColorModeValue,
   Image,
   AspectRatio,
   Stack,
-  Divider,
+  Divider
 } from '@chakra-ui/react';
+// import theme from '../theme'
+import { ColorModeSwitcher } from '../ColorModeSwitcher';
 
 function App() {
 
-  const { toggleColorMode } = useColorMode() //On cart component
-  const secondaryTextColor = useColorModeValue('gray.600', 'gray.400');
+  const bgColor = useColorModeValue('whiteAlpha.50', 'gray.50');
+  const secondaryTextColor = useColorModeValue('gray.500');
 
   return (
     <ChakraProvider theme={theme}>
-      <Container maxWidth='container.xl' padding={0} /* p means padding*/>
+      <Container maxWidth='container.xl' padding={0}>
         <Flex h='100vh' py={20} /* py means padding on y axis */>
 
         {/* Details component */}
@@ -100,14 +100,12 @@ function App() {
           p={10}
           spacing={10}
           alignItems='flex-start'
-          bg='gray.50'
+          bg={bgColor}
           >
           <VStack>
             <Heading size='2xl'>Your Cart</Heading>
-            <Text>If the price is too hard on your eyes {' '}
-              <Button onClick={toggleColorMode} variant="link" colorScheme="black">
-              try changing the theme.
-              </Button>
+            <Text>
+              If the price is too hard on your eyes try changing the theme <ColorModeSwitcher />
             </Text>
           </VStack>
           <HStack spacing={6} alignItems="center" w="full">
