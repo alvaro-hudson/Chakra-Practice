@@ -1,13 +1,14 @@
 import * as React from 'react';
 import {
   ChakraProvider,
-  theme,
   Container,
   Flex,
 } from '@chakra-ui/react';
 // import theme from '../theme'
 import Details from './Details';
 import Cart from './Cart';
+import theme from '../theme/index'
+import '../theme/styles.css'
 
 function App() {
 
