@@ -33,7 +33,7 @@ function Details() {
         <GridItem colSpan={colspan}>
           <FormControl>
             <FormLabel>First Name</FormLabel>
-            <Input placeholder='John'></Input>
+            <Input placeholder='John' focusBorderColor='pink.400'></Input>
           </FormControl>
         </GridItem>
         <GridItem colSpan={colspan}>
