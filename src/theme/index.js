@@ -1,4 +1,9 @@
-import { extendTheme, theme as base, withDefaultColorScheme, withDefaultVariant } from "@chakra-ui/react";
+import { extendTheme, 
+  theme as base, 
+  withDefaultColorScheme, 
+  withDefaultVariant } from "@chakra-ui/react";
+import { mode } from '@chakra-ui/theme-tools'
+
 
 //This object is called as a spread operator below
 const inputSelectStyles = {
@@ -17,6 +22,14 @@ const inputSelectStyles = {
         borderRadius: 'none' // makes the border edges of the form right-angled and not slightly curved
       }
     }
+  }
+}
+
+//This does the green outline for button and checkbox
+const brandRing = {
+  _focus: {
+    ring: 2,
+    ringColor: 'brand.500'
   }
 }
 
@@ -43,16 +56,30 @@ const theme = extendTheme({
     body: `Inter, ${base.fonts?.body}`
   },
   components: {
+    Button: {
+      variants: {
+        primary: (props) => ({
+          rounded: 'none',
+          ...brandRing,
+          //these background colors are for the green button
+          backgroundColor: mode('brand.500', 'brand.200'),
+          _hover: {
+            backgroundColor: mode('brand.600', 'brand.300')(props),
+          },
+          _active: {
+            backgroundColor: mode('brand.700', 'brand.400')(props)
+          }
+          
+        })
+      }
+    },
     Input: { ...inputSelectStyles}, // from object at the top
     Select: { ...inputSelectStyles},
     Checkbox: { //this changes the outline color for tick box
       baseStyle: {
         control: {
           borderRadius: 'none',
-          _focus: {
-            ring: 2,
-            ringColor: 'brand.500'
-          }
+          ...brandRing
         }
       }
     }
